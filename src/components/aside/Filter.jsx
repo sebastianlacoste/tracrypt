@@ -56,6 +56,8 @@ const Filter = () => {
 					<a
 						className="container py-1 rounded-lg shadow-md shadow-tracrypt-wt hover:shadow-lg hover:shadow-tracrypt-wt transition-all"
 						href="https://www.coingecko.com/en/api"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
 						<h1 className="text-sm font-extralight">Powered by</h1>
 
