@@ -4,8 +4,8 @@ const Filter = () => {
 	return (
 		<div className="w-2/12 text-tracrypt-wt font-extralight tracking-widest text-xl bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full overflow-x-hidden">
 			<div className="w-full z-10">
-				<div className="bg-tracrypt-dk-f py-3 text-center border-b-2 border-b-tracrypt-bl shadow-lg shadow-black cursor-default">
-					<h1 className="uppercase">Filters</h1>
+				<div className="bg-tracrypt-dk-f py-3 text-center border-b-2 border-b-tracrypt-bl shadow-lg shadow-black cursor-default hover:bg-tracrypt-gr-dk transition-all">
+					<h1>Filters</h1>
 				</div>
 			</div>
 
