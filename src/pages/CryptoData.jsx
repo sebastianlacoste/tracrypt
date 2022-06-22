@@ -4,10 +4,10 @@ import CryptoTable from "../components/main/CryptoTable";
 const CryptoData = () => {
 	return (
 		<>
-			<main className="flex gap-10 h-full">
+			<div className="flex gap-10 h-screen">
 				<Filter />
 				<CryptoTable />
-			</main>
+			</div>
 		</>
 	);
 };
