@@ -71,47 +71,42 @@ const FilterOptions = ({ icon, name }) => {
 		gainers: (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				width="13"
-				height="21"
+				width="30"
+				height="24"
 				fill="none"
-				viewBox="0 0 13 21"
+				viewBox="0 0 30 24"
 			>
-				<path
-					fill="#F6F6F6"
-					d="M6 1a1 1 0 001 1h2.59l-6.3 6.29a1 1 0 000 1.42L6.59 13l-5.3 5.29a1.004 1.004 0 001.42 1.42l6-6a1 1 0 000-1.42L5.41 9 11 3.41V6a1 1 0 002 0V1a1.001 1.001 0 00-.08-.38 1 1 0 00-.54-.54A1 1 0 0012 0H7a1 1 0 00-1 1z"
-				></path>
-			</svg>
-		),
-		losers: (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="13"
-				height="21"
-				fill="none"
-				viewBox="0 0 13 21"
-			>
-				<path
-					fill="#F6F6F6"
-					d="M7 20a1 1 0 00-1-1H3.41l6.3-6.29a.999.999 0 000-1.42L6.41 8l5.3-5.29a1.004 1.004 0 10-1.42-1.42l-6 6a1 1 0 000 1.42L7.59 12 2 17.59V15a1 1 0 00-2 0v5a1 1 0 00.08.38 1 1 0 00.54.54c.12.051.25.078.38.08h5a1 1 0 001-1z"
-				></path>
+				<g clipPath="url(#clip0_91_80)">
+					<path
+						fill="#F6F6F6"
+						d="M19.036 2.89a.547.547 0 01.305.926l-1.782 1.72.422 2.438c.024.44-.389.778-.792.576l-2.18-1.148-2.198 1.162a.55.55 0 01-.792-.572l.422-2.442-1.782-1.734a.547.547 0 01.305-.926l2.452-.353 1.106-2.24a.533.533 0 01.956 0l1.106 2.24 2.452.353zM18 12c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5h-6c-.83 0-1.5-.67-1.5-1.5v-9c0-.83.67-1.5 1.5-1.5h6zM7.5 15c.83 0 1.5.67 1.5 1.5v6c0 .83-.67 1.5-1.5 1.5h-6A1.5 1.5 0 010 22.5v-6c0-.83.672-1.5 1.5-1.5h6zM21 19.5c0-.83.67-1.5 1.5-1.5h6c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5h-6c-.83 0-1.5-.67-1.5-1.5v-3z"
+					></path>
+				</g>
+				<defs>
+					<clipPath id="clip0_91_80">
+						<path fill="#fff" d="M0 0H30V24H0z"></path>
+					</clipPath>
+				</defs>
 			</svg>
 		),
 	};
 
 	return (
 		<>
-			<div className="w-full z-0 hover:cursor-default">
-				<div className="flex justify-center items-center gap-5 py-3 bg-tracrypt-dk shadow-md shadow-black hover:bg-tracrypt-bl-dk transition-all">
-					<div className="flex items-center gap-4">
-						{icons[icon]}
-						<h1>{name}</h1>
+			<div className="shadow-lg shadow-black bg-tracrypt-dk hover:bg-tracrypt-bl-dk transition-all">
+				<div className="w-full z-10 hover:cursor-default ">
+					<div className="flex justify-center items-center gap-5 py-3">
+						<div className="flex items-center gap-2">
+							{icons[icon]}
+							<h1>{name}</h1>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div className="w-full">
-				<div className="py-3 bg-tracrypt-gr-dk shadow-lg shadow-black">
-					<h1>Selector</h1>
+				<div className="w-full z-0 hover:cursor-pointer">
+					<div className="py-3 bg-tracrypt-gr-dk">
+						<h1>Selector</h1>
+					</div>
 				</div>
 			</div>
 		</>
