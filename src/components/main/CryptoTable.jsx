@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import useFilterSelected from "../../hooks/useFilterSelected";
 
 import coinData from "../../helpers/CoinData";
-import idGenerate from "../../helpers/IdGenerate";
+import keyGenerate from "../../helpers/KeyGenerate";
+
 import {
 	volumenSortTop,
 	mktCapSortTop,
@@ -39,7 +40,7 @@ const CryptoTable = () => {
 
 		setInterval(() => {
 			getApiData(currencieChoose);
-		}, 300000); // Auto-Refresh every 5min
+		}, 300000); // Auto-Refresh every 5mins
 	}, [currencieChoose, orderChoose]);
 
 	const tableHeader = [
@@ -56,7 +57,7 @@ const CryptoTable = () => {
 	const thList = tableHeader.map((header) => (
 		<th
 			className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest 2xl:text-lg text-sm"
-			key={`${idGenerate()}`}
+			key={keyGenerate()}
 		>
 			{header}
 		</th>
@@ -98,7 +99,7 @@ const CryptoTable = () => {
 					return (
 						<td
 							className="lg:w-full md:w-36 w-32 p-3 text-green-400"
-							key={idGenerate()}
+							key={keyGenerate()}
 						>
 							+{coinInfo}%
 						</td>
@@ -108,7 +109,7 @@ const CryptoTable = () => {
 					return (
 						<td
 							className="lg:w-full md:w-36 w-32 p-3 text-red-400"
-							key={idGenerate()}
+							key={keyGenerate()}
 						>
 							{coinInfo}%
 						</td>
@@ -117,7 +118,7 @@ const CryptoTable = () => {
 			} else {
 				tdCounter++;
 				return (
-					<td className="lg:w-full md:w-36 w-32 p-3" key={idGenerate()}>
+					<td className="lg:w-full md:w-36 w-32 p-3" key={keyGenerate()}>
 						{coinInfo}
 					</td>
 				);
@@ -130,6 +131,7 @@ const CryptoTable = () => {
 					colorChange ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(colorChange =
 					!colorChange)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default 2xl:text-sm text-xs`}
+				key={keyGenerate()}
 			>
 				{tdListGen}
 			</tr>
