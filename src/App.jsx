@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import AppLayout from "./layout/AppLayout";
 import CryptoData from "./pages/CryptoData";
@@ -14,6 +14,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<AppLayout />}>
 							<Route index element={<CryptoData />} />
+							<Route path="*" element={<Navigate to="/" replace />} />
 						</Route>
 					</Routes>
 				</FilterSelected>
