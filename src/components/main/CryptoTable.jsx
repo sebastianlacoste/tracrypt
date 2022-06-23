@@ -39,7 +39,7 @@ const CryptoTable = () => {
 
 		setInterval(() => {
 			getApiData(currencieChoose);
-		}, 300000); // Auto-Refresh every 5mins
+		}, 300000); // Auto-Refresh every 5min
 	}, [currencieChoose, orderChoose]);
 
 	const tableHeader = [
@@ -55,7 +55,7 @@ const CryptoTable = () => {
 
 	const thList = tableHeader.map((header) => (
 		<th
-			className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest text-lg"
+			className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest 2xl:text-lg text-sm"
 			key={`${idGenerate()}`}
 		>
 			{header}
@@ -96,14 +96,20 @@ const CryptoTable = () => {
 				if (coinInfo > 0) {
 					tdCounter++;
 					return (
-						<td className="w-full p-3 text-green-400" key={idGenerate()}>
+						<td
+							className="lg:w-full md:w-36 w-32 p-3 text-green-400"
+							key={idGenerate()}
+						>
 							+{coinInfo}%
 						</td>
 					);
 				} else {
 					tdCounter++;
 					return (
-						<td className="w-full p-3 text-red-400" key={idGenerate()}>
+						<td
+							className="lg:w-full md:w-36 w-32 p-3 text-red-400"
+							key={idGenerate()}
+						>
 							{coinInfo}%
 						</td>
 					);
@@ -111,7 +117,7 @@ const CryptoTable = () => {
 			} else {
 				tdCounter++;
 				return (
-					<td className="w-full p-3" key={idGenerate()}>
+					<td className="lg:w-full md:w-36 w-32 p-3" key={idGenerate()}>
 						{coinInfo}
 					</td>
 				);
@@ -123,7 +129,7 @@ const CryptoTable = () => {
 				className={`${
 					colorChange ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(colorChange =
-					!colorChange)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default text-sm`}
+					!colorChange)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default 2xl:text-sm text-xs`}
 			>
 				{tdListGen}
 			</tr>
@@ -132,11 +138,11 @@ const CryptoTable = () => {
 
 	return (
 		<div
-			className="2xl:w-11/12 w-full text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-y-auto overflow-x-hidden"
+			className="2xl:w-11/12 w-full text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-y-auto overflow-x-auto"
 			id="coinTable"
 		>
 			<div>
-				<table className="w-full">
+				<table className="w-full overflow-x-auto">
 					<thead>
 						<tr className="flex justify-evenly items-center bg-tracrypt-dk-f text-center border-b-2 border-b-tracrypt-bl cursor-default pr-8">
 							{thList}
