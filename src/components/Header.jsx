@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import useMenuProvider from "../hooks/useMenuProvider";
 
 const Header = () => {
+	const { showMenu, setShowMenu } = useMenuProvider();
+
 	return (
 		<>
 			<header className="shadow-2xl">
@@ -22,7 +24,7 @@ const Header = () => {
 						/>
 					</svg>
 				</div>
-				<div className="py-5 px-10 flex justify-center items-center shadow-2xl">
+				<div className="py-5 2xl:px-10 px-4 flex 2xl:justify-center justify-between items-center shadow-2xl">
 					{" "}
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -55,6 +57,41 @@ const Header = () => {
 							></image>
 						</defs>
 					</svg>
+					{showMenu ? (
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							fill="none"
+							viewBox="0 0 24 24"
+							className="2xl:hidden hover:cursor-pointer transition-all ease-in mt-2"
+							onClick={() => {
+								setShowMenu(!showMenu);
+							}}
+						>
+							<path
+								fill="#F6F6F6"
+								d="M.44.44a1.5 1.5 0 012.12 0l5.304 5.303L13.168.44A1.5 1.5 0 0115.29 2.56L9.985 7.864l5.304 5.304a1.5 1.5 0 01-2.12 2.121L7.863 9.985 2.56 15.29a1.5 1.5 0 01-2.12-2.12l5.303-5.305L.44 2.56a1.5 1.5 0 010-2.12z"
+							></path>
+						</svg>
+					) : (
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							fill="none"
+							viewBox="0 0 24 24"
+							className="2xl:hidden hover:cursor-pointer transition-all ease-in"
+							onClick={() => {
+								setShowMenu(!showMenu);
+							}}
+						>
+							<path
+								fill="#F6F6F6"
+								d="M20.05 11H3.95a.95.95 0 00-.95.95v.1c0 .525.425.95.95.95h16.1a.95.95 0 00.95-.95v-.1a.95.95 0 00-.95-.95zM20.05 16H3.95a.95.95 0 00-.95.95v.1c0 .525.425.95.95.95h16.1a.95.95 0 00.95-.95v-.1a.95.95 0 00-.95-.95zM20.05 6H3.95a.95.95 0 00-.95.95v.1c0 .525.425.95.95.95h16.1a.95.95 0 00.95-.95v-.1a.95.95 0 00-.95-.95z"
+							></path>
+						</svg>
+					)}
 				</div>
 			</header>
 		</>

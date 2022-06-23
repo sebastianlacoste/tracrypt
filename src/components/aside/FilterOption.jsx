@@ -131,9 +131,9 @@ const FilterOptions = ({ icon, name }) => {
 
 				{icon === "fiat" ? (
 					<div className="w-full z-0">
-						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk">
+						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
 							<button
-								className={`w-1/2 py-2 ${
+								className={`w-1/2 py-2 bg-tracrypt-gr-dk ${
 									currencieChoose === "usd"
 										? "bg-tracrypt-bl-dk"
 										: `bg-tracrypt-dk`
@@ -145,7 +145,7 @@ const FilterOptions = ({ icon, name }) => {
 								USD
 							</button>
 							<button
-								className={`w-1/2 py-2 ${
+								className={`w-1/2 py-2 bg-tracrypt-gr-dk ${
 									currencieChoose === "eur"
 										? "bg-tracrypt-bl-dk"
 										: `bg-tracrypt-dk`
@@ -164,7 +164,7 @@ const FilterOptions = ({ icon, name }) => {
 
 				{name === "MVP" ? (
 					<div className="w-full z-0">
-						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk">
+						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk  mt-2 2xl:mt-0">
 							<button
 								className={`w-1/2 py-2 ${
 									mvpTopLow1h ? "hover:bg-green-700" : `hover:bg-red-700`

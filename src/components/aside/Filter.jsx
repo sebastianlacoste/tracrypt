@@ -1,29 +1,33 @@
 import FilterOption from "./FilterOption";
+import useMenuProvider from "../../hooks/useMenuProvider";
 
 const Filter = () => {
-	return (
-		<div className="w-2/12 text-tracrypt-wt font-extralight tracking-widest text-lg bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full overflow-x-hidden">
+	const { showMenu } = useMenuProvider();
 
-			<div className="flex flex-col gap-5">
+	return (
+		<div className={`2xl:w-2/12 text-tracrypt-wt font-extralight tracking-widest text-lg bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full 2xl:overflow-x-hidden 2xl:relative w-full h-full ${showMenu ? "absolute" : "hidden"}`}>
+			<div className="flex flex-col items-center gap-5">
 				<div className="w-full z-10">
 					<div className="bg-tracrypt-dk-f py-3 text-center border-b-2 border-b-tracrypt-bl shadow-lg shadow-black cursor-default hover:bg-tracrypt-gr-dk transition-all">
 						<h1>Filters</h1>
 					</div>
 				</div>
 
-				<FilterOption icon="fiat" name="Currency" />
+				<div className="w-full mx-auto flex flex-col 2xl:gap-5 2xl:mt-0 mt-5 gap-10 2xl:px-0 max-w-2xl">
+					<FilterOption icon="fiat" name="Currency" />
 
-				<FilterOption icon="gainers" name="MVP" />
+					<FilterOption icon="gainers" name="MVP" />
 
-				<FilterOption icon="marketCap" name="Mkt Cap" />
+					<FilterOption icon="marketCap" name="Mkt Cap" />
 
-				<FilterOption icon="volumen" name="Volumen" />
+					<FilterOption icon="volumen" name="Volumen" />
+				</div>
 			</div>
 
 			<div>
 				{/* Coingecko Atribbute */}
-				<div className="w-full z-0 hover:cursor-default mb-4">
-					<div className="p-3 flex flex-col justify-center items-center">
+				<div className="w-full mx-auto z-0 hover:cursor-default 2xl:mb-4 mb-2 max-w-2xl">
+					<div className="p-3 flex justify-center items-center">
 						<a
 							className="container py-2 rounded-lg shadow-md shadow-green-500 hover:shadow-lg hover:shadow-green-500 transition-all"
 							href="https://www.coingecko.com/en/api"
