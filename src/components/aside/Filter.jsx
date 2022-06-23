@@ -5,7 +5,7 @@ const Filter = () => {
 	const { showMenu } = useMenuProvider();
 
 	return (
-		<div className={`2xl:w-2/12 text-tracrypt-wt font-extralight tracking-widest text-lg bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full 2xl:overflow-x-hidden 2xl:relative w-full h-full ${showMenu ? "absolute" : "hidden"}`}>
+		<div className={`2xl:w-2/12 text-tracrypt-wt font-extralight tracking-widest text-lg bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full 2xl:overflow-x-hidden 2xl:relative 2xl:flex w-full h-full ${showMenu ? "absolute" : "hidden"}`}>
 			<div className="flex flex-col items-center gap-5">
 				<div className="w-full z-10">
 					<div className="bg-tracrypt-dk-f py-3 text-center border-b-2 border-b-tracrypt-bl shadow-lg shadow-black cursor-default hover:bg-tracrypt-gr-dk transition-all">
