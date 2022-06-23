@@ -172,7 +172,6 @@ const FilterOptions = ({ icon, name }) => {
 								onClick={() => {
 									setOrderChoose(`${mvpTopLow1h ? "1hTop" : "1hLow"}`);
 									setMvpTopLow1h(!mvpTopLow1h);
-									console.log("mvpTopLow1h: " + mvpTopLow1h);
 								}}
 							>
 								1h
@@ -184,7 +183,6 @@ const FilterOptions = ({ icon, name }) => {
 								onClick={() => {
 									setOrderChoose(`${mvpTopLow24h ? "24hTop" : "24hLow"}`);
 									setMvpTopLow24h(!mvpTopLow24h);
-									console.log("mvpTopLow24h: " + mvpTopLow24h);
 								}}
 							>
 								24h
@@ -196,7 +194,6 @@ const FilterOptions = ({ icon, name }) => {
 								onClick={() => {
 									setOrderChoose(`${mvpTopLow7d ? "7dTop" : "7dLow"}`);
 									setMvpTopLow7d(!mvpTopLow7d);
-									console.log("mvpTopLow7d: " + mvpTopLow7d);
 								}}
 							>
 								7d

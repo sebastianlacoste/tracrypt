@@ -4,7 +4,7 @@ import { round, price } from "../helpers/NumberFormat";
 
 const coinData = async (currency) => {
 	const { data } = await clientAxios(
-		`/coins/markets?vs_currency=${currency}&per_page=20&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
+		`/coins/markets?vs_currency=${currency}&per_page=250&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
 	);
 
 	const coinData = Object.values(data).map((coin) => {
