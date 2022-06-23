@@ -60,7 +60,7 @@ const CoinData = ({ currencie }) => {
 				className={`${
 					colorChange ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(colorChange =
-					!colorChange)} py-2 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 cursor-default`}
+					!colorChange)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default`}
 			>
 				{tdListGen}
 			</tr>

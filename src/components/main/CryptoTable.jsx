@@ -19,15 +19,18 @@ const CryptoTable = () => {
 	));
 
 	return (
-		<div className="w-11/12 text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-hidden">
+		<div
+			className="w-11/12 text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-y-auto overflow-x-hidden"
+			id="coinTable"
+		>
 			<div>
 				<table className="w-full">
 					<thead>
-						<tr className="flex justify-evenly items-center bg-tracrypt-dk-f text-center border-b-2 border-b-tracrypt-bl cursor-default">
+						<tr className="flex justify-evenly items-center bg-tracrypt-dk-f text-center border-b-2 border-b-tracrypt-bl cursor-default pr-8">
 							{thList}
 						</tr>
 					</thead>
-					<tbody className="overflow-x-hidden overflow-y-auto">
+					<tbody>
 						<CoinData currencie="usd" />
 					</tbody>
 				</table>
