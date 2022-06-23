@@ -35,6 +35,10 @@ const CryptoTable = () => {
 			setCoinRender(await coinData(currency));
 		};
 		getApiData(currencieChoose);
+
+		setInterval(() => {
+			getApiData(currencieChoose);
+		}, 300000); // Auto-Refresh every 5mins
 	}, [currencieChoose, orderChoose]);
 
 	const tableHeader = [
