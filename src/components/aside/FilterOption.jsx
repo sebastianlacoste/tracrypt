@@ -108,7 +108,7 @@ const FilterOptions = ({ icon, name }) => {
 					icon === "fiat" || name === "MVP"
 						? "cursor-default"
 						: `hover:cursor-pointer ${
-								orderTopLow ? "hover:bg-green-600" : `hover:bg-red-600`
+								orderTopLow ? "hover:bg-green-700" : `hover:bg-red-700`
 						  }`
 				}`}
 				onClick={
@@ -167,7 +167,7 @@ const FilterOptions = ({ icon, name }) => {
 						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk">
 							<button
 								className={`w-1/2 py-2 ${
-									mvpTopLow1h ? "hover:bg-green-600" : `hover:bg-red-600`
+									mvpTopLow1h ? "hover:bg-green-700" : `hover:bg-red-700`
 								}`}
 								onClick={() => {
 									setOrderChoose(`${mvpTopLow1h ? "1hTop" : "1hLow"}`);
@@ -179,7 +179,7 @@ const FilterOptions = ({ icon, name }) => {
 							</button>
 							<button
 								className={`w-1/2 py-2 ${
-									mvpTopLow24h ? "hover:bg-green-600" : `hover:bg-red-600`
+									mvpTopLow24h ? "hover:bg-green-700" : `hover:bg-red-700`
 								}`}
 								onClick={() => {
 									setOrderChoose(`${mvpTopLow24h ? "24hTop" : "24hLow"}`);
@@ -191,7 +191,7 @@ const FilterOptions = ({ icon, name }) => {
 							</button>
 							<button
 								className={`w-1/2 py-2 ${
-									mvpTopLow7d ? "hover:bg-green-600" : `hover:bg-red-600`
+									mvpTopLow7d ? "hover:bg-green-700" : `hover:bg-red-700`
 								}`}
 								onClick={() => {
 									setOrderChoose(`${mvpTopLow7d ? "7dTop" : "7dLow"}`);
