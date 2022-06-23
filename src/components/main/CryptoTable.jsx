@@ -4,7 +4,18 @@ import useFilterSelected from "../../hooks/useFilterSelected";
 
 import coinData from "../../helpers/CoinData";
 import idGenerate from "../../helpers/IdGenerate";
-import { volumenSort, mktCapSort } from "../../helpers/OrderSort";
+import {
+	volumenSortTop,
+	mktCapSortTop,
+	mvp1hSortTop,
+	mvp24hSortTop,
+	mvp7dSortTop,
+	volumenSortLow,
+	mktCapSortLow,
+	mvp1hSortLow,
+	mvp24hSortLow,
+	mvp7dSortLow,
+} from "../../helpers/OrderSort";
 
 const CryptoTable = () => {
 	const { currencieChoose, setCurrencieChoose, orderChoose, setOrderChoose } =
@@ -24,7 +35,7 @@ const CryptoTable = () => {
 			setCoinRender(await coinData(currency));
 		};
 		getApiData(currencieChoose);
-	}, []);
+	}, [currencieChoose, orderChoose]);
 
 	const tableHeader = [
 		"#",
@@ -46,10 +57,26 @@ const CryptoTable = () => {
 		</th>
 	));
 
-	if (orderChoose === "Volumen") {
-		coinRender.sort(volumenSort);
-	} else if (orderChoose === "Mkt Cap") {
-		coinRender.sort(mktCapSort);
+	if (orderChoose === "Mkt CapTop") {
+		coinRender.sort(mktCapSortTop);
+	} else if (orderChoose === "VolumenTop") {
+		coinRender.sort(volumenSortTop);
+	} else if (orderChoose === "1hTop") {
+		coinRender.sort(mvp1hSortTop);
+	} else if (orderChoose === "24hTop") {
+		coinRender.sort(mvp24hSortTop);
+	} else if (orderChoose === "7dTop") {
+		coinRender.sort(mvp7dSortTop);
+	} else if (orderChoose === "Mkt CapLow") {
+		coinRender.sort(mktCapSortLow);
+	} else if (orderChoose === "VolumenLow") {
+		coinRender.sort(volumenSortLow);
+	} else if (orderChoose === "1hLow") {
+		coinRender.sort(mvp1hSortLow);
+	} else if (orderChoose === "24hLow") {
+		coinRender.sort(mvp24hSortLow);
+	} else if (orderChoose === "7dLow") {
+		coinRender.sort(mvp7dSortLow);
 	}
 
 	let colorChange = false;
@@ -118,12 +145,3 @@ const CryptoTable = () => {
 };
 
 export default CryptoTable;
-
-/*
-
-	useEffect(() => {
-		
-		
-	}, [orderChoose]);
-
-*/
