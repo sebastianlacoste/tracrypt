@@ -103,11 +103,16 @@ const FilterOptions = ({ icon, name }) => {
 					</div>
 				</div>
 
-				<div className="w-full z-0 hover:cursor-pointer">
-					<div className="py-3 bg-tracrypt-gr-dk">
-						<h1>Selector</h1>
+				{icon === "fiat" ? (
+					<div className="w-full z-0">
+						<div className="flex justify-evenly items-center  bg-tracrypt-gr-dk">
+							<button className="hover:bg-tracrypt-dk w-1/2 py-2">USD</button>
+							<button className="hover:bg-tracrypt-dk w-1/2 py-2">EUR</button>
+						</div>
 					</div>
-				</div>
+				) : (
+					""
+				)}
 			</div>
 		</>
 	);
