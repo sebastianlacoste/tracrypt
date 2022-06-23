@@ -31,7 +31,7 @@ const CryptoTable = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<CoinData currencie="usd" />
+						<CoinData />
 					</tbody>
 				</table>
 			</div>

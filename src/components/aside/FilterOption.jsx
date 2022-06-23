@@ -1,4 +1,8 @@
+import useFilterSelected from "../../hooks/useFilterSelected";
+
 const FilterOptions = ({ icon, name }) => {
+	const { setCurrencieChoose, setOrderChoose } = useFilterSelected();
+
 	const icons = {
 		fiat: (
 			<svg
@@ -93,8 +97,19 @@ const FilterOptions = ({ icon, name }) => {
 
 	return (
 		<>
-			<div className="shadow-lg shadow-black bg-tracrypt-dk hover:bg-tracrypt-bl-dk transition-all">
-				<div className="w-full z-10 hover:cursor-default ">
+			<div
+				className={`shadow-lg shadow-black bg-tracrypt-dk hover:bg-tracrypt-bl-dk transition-all ${
+					icon === "fiat" ? "cursor-default" : "hover:cursor-pointer"
+				}`}
+				onClick={
+					icon === "fiat"
+						? () => {}
+						: () => {
+								setOrderChoose(name);
+						  }
+				}
+			>
+				<div className="w-full z-10">
 					<div className="flex justify-center items-center gap-5 py-3">
 						<div className="flex items-center gap-2">
 							{icons[icon]}
@@ -105,9 +120,23 @@ const FilterOptions = ({ icon, name }) => {
 
 				{icon === "fiat" ? (
 					<div className="w-full z-0">
-						<div className="flex justify-evenly items-center  bg-tracrypt-gr-dk">
-							<button className="hover:bg-tracrypt-dk w-1/2 py-2">USD</button>
-							<button className="hover:bg-tracrypt-dk w-1/2 py-2">EUR</button>
+						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk">
+							<button
+								className="hover:bg-tracrypt-dk w-1/2 py-2"
+								onClick={() => {
+									setCurrencieChoose("usd");
+								}}
+							>
+								USD
+							</button>
+							<button
+								className="hover:bg-tracrypt-dk w-1/2 py-2"
+								onClick={() => {
+									setCurrencieChoose("eur");
+								}}
+							>
+								EUR
+							</button>
 						</div>
 					</div>
 				) : (
