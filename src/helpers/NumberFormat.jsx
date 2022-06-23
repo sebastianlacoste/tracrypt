@@ -7,32 +7,32 @@ const priceFormat = (price, currencie) => {
 
 export const price = (price, currencie, cutDecimals) => {
 	if (currencie === "usd") {
-		const usdCurrency = priceFormat(price, currencie);
+		if (price > 1) {
+			const usdCurrency = priceFormat(price, currencie);
 
-		if (cutDecimals) {
-			return usdCurrency.toString().split(".")[0];
+			if (cutDecimals) {
+				return usdCurrency.toString().split(".")[0];
+			}
+
+			return usdCurrency;
+		} else {
+			return "$" + price.toString();
 		}
-
-		return usdCurrency;
 	} else if (currencie === "eur") {
-		const eurCurrency = priceFormat(price, currencie);
+		if (price > 1) {
+			const eurCurrency = priceFormat(price, currencie);
 
-		if (cutDecimals) {
-			return eurCurrency.toString().split(",")[0].concat(" €");
+			if (cutDecimals) {
+				return eurCurrency.toString().split(",")[0].concat(" €");
+			}
+
+			return eurCurrency;
+		} else {
+			return price.toString().concat(" €");
 		}
-
-		return eurCurrency;
 	}
 };
 
 export const round = (number) => {
 	return Math.round(number * 100) / 100;
 };
-
-/* TEST-FORMATS
-
-    TEST: 404588599422
-    EUR: 404.588.599.422,00 €
-    USD: $404,588,599,422.00
-
-*/
