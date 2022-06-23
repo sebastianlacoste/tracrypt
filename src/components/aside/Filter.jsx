@@ -2,7 +2,8 @@ import FilterOption from "./FilterOption";
 
 const Filter = () => {
 	return (
-		<div className="w-2/12 text-tracrypt-wt font-extralight tracking-widest text-xl bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full overflow-x-hidden">
+		<div className="w-2/12 text-tracrypt-wt font-extralight tracking-widest text-lg bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between max-h-full overflow-x-hidden">
+
 			<div className="flex flex-col gap-5">
 				<div className="w-full z-10">
 					<div className="bg-tracrypt-dk-f py-3 text-center border-b-2 border-b-tracrypt-bl shadow-lg shadow-black cursor-default hover:bg-tracrypt-gr-dk transition-all">
@@ -24,7 +25,7 @@ const Filter = () => {
 				<div className="w-full z-0 hover:cursor-default mb-4">
 					<div className="p-3 flex flex-col justify-center items-center">
 						<a
-							className="container py-1 rounded-lg shadow-md shadow-green-500 hover:shadow-lg hover:shadow-green-500 transition-all"
+							className="container py-2 rounded-lg shadow-md shadow-green-500 hover:shadow-lg hover:shadow-green-500 transition-all"
 							href="https://www.coingecko.com/en/api"
 							target="_blank"
 							rel="noopener nofollow"

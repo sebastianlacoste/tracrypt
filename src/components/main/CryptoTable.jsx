@@ -34,6 +34,7 @@ const CryptoTable = () => {
 
 			setCoinRender(await coinData(currency));
 		};
+
 		getApiData(currencieChoose);
 
 		setInterval(() => {
@@ -54,7 +55,7 @@ const CryptoTable = () => {
 
 	const thList = tableHeader.map((header) => (
 		<th
-			className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest text-xl"
+			className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest text-lg"
 			key={`${idGenerate()}`}
 		>
 			{header}
@@ -122,7 +123,7 @@ const CryptoTable = () => {
 				className={`${
 					colorChange ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(colorChange =
-					!colorChange)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default`}
+					!colorChange)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default text-sm`}
 			>
 				{tdListGen}
 			</tr>
