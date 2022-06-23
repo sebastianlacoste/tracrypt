@@ -1,9 +1,21 @@
 import CoinData from "./CoinData";
 
 const CryptoTable = () => {
-
-	const tableHeader = ["#", "Coin", "Price", "1h", "24h", "7d", "24h Vol.", "Mkt. Cap"];
-	const thList = tableHeader.map((header) => <th className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest text-xl ">{header}</th>);
+	const tableHeader = [
+		"#",
+		"Coin",
+		"Price",
+		"1h",
+		"24h",
+		"7d",
+		"24h Vol.",
+		"Mkt. Cap",
+	];
+	const thList = tableHeader.map((header) => (
+		<th className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest text-xl ">
+			{header}
+		</th>
+	));
 
 	return (
 		<div className="w-11/12 text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-hidden">
@@ -14,8 +26,8 @@ const CryptoTable = () => {
 							{thList}
 						</tr>
 					</thead>
-					<tbody >
-						<CoinData />
+					<tbody className="overflow-y-scroll">
+						<CoinData currencie="eur" />
 					</tbody>
 				</table>
 			</div>

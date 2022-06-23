@@ -1,76 +1,72 @@
-// ["#", "Coin", "Price", "1h", "24h", "7d", "24h Vol.", "Mkt. Cap"];
+import { useState, useEffect } from "react";
+import clientAxios from "../../config/clientAxios";
+import { round, price } from "../../helpers/NumberFormat";
 
-const CoinData = () => {
+const CoinData = ({ currencie }) => {
+	const [coinList, setCoinList] = useState([]);
+	const [actualCurrencie, setActualCurrencie] = useState();
+
 	let colorChange = false;
 
-	const tableBody = [
-		{
-			id: "1",
-			coin: "Bitcoin BTC",
-			price: "$20,206.60",
-			hour1: "-1.1%",
-			hour24: "2.4%",
-			week: "5.4%",
-			volume: "$24,118,373,349",
-			mktCap: "$556,801,193,885",
-		},
-		{
-			id: "2",
-			coin: "Etherum ETH",
-			price: "$1,206.60",
-			hour1: "-1.1%",
-			hour24: "2.4%",
-			week: "5.4%",
-			volume: "$24,118,373,349",
-			mktCap: "$556,801,193,885",
-		},
-		{
-			id: "3",
-			coin: "Monero XMR",
-			price: "$106.60",
-			hour1: "-1.1%",
-			hour24: "2.4%",
-			week: "5.4%",
-			volume: "$24,118,373,349",
-			mktCap: "$556,801,193,885",
-		},
-		{
-			id: "4",
-			coin: "Chainlink",
-			price: "$7.60",
-			hour1: "-1.1%",
-			hour24: "2.4%",
-			week: "5.4%",
-			volume: "$24,118,373,349",
-			mktCap: "$556,801,193,885",
-		},
-	];
+	useEffect(() => {
+		const marketReq = async () => {
+			const { data } = await clientAxios(
+				`/coins/markets?vs_currency=${currencie}&per_page=10&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
+			);
+
+			const coinData = Object.values(data).map((coin) => {
+				return {
+					rank: coin.market_cap_rank,
+					name: `${coin.name} (${coin.symbol.toUpperCase()})`,
+					price: `${price(coin.current_price, currencie, false)}`,
+					change1h: round(coin.price_change_percentage_1h_in_currency),
+					change24h: round(coin.price_change_percentage_24h_in_currency),
+					change7d: round(coin.price_change_percentage_7d_in_currency),
+					volume24h: price(coin.total_volume, currencie, true),
+					mktCap: price(coin.market_cap, currencie, true),
+				};
+			});
+			setCoinList(coinData);
+		};
+		marketReq();
+	}, []);
 
 	// Obtenemos el Objeto del Array
-	const tdList = tableBody.map((data) => {
+	const trList = coinList.map((data) => {
 		// Obtenemos los valores del Objeto en un Array
 		const dataArray = Object.values(data);
 
 		// Recorremos los valores obtenidos para generar los <td>
-		let tdListGen = dataArray.map((coinInfo) => (
-			<td className="w-full p-3">{coinInfo}</td>
-		));
+		let tdCounter = 0;
+
+		let tdListGen = dataArray.map((coinInfo) => {
+			if (tdCounter > 2 && tdCounter < 6) {
+				if (coinInfo > 0) {
+					tdCounter++;
+					return <td className="w-full p-3 text-green-400">+{coinInfo}%</td>;
+				} else {
+					tdCounter++;
+					return <td className="w-full p-3 text-red-400">{coinInfo}%</td>;
+				}
+			} else {
+				tdCounter++;
+				return <td className="w-full p-3">{coinInfo}</td>;
+			}
+		});
 
 		return (
 			<tr
 				className={`${
-					colorChange
-						? "bg-tracrypt-gr-dk"
-						: "bg-tracrypt-dk"
+					colorChange ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(colorChange =
-					!colorChange)} flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 cursor-default`}
+					!colorChange)} py-2 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 cursor-default`}
 			>
 				{tdListGen}
 			</tr>
 		);
 	});
 
-	return <>{tdList}</>;
+	return <>{trList}</>;
 };
 
 export default CoinData;
