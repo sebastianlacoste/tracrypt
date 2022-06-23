@@ -132,7 +132,7 @@ const CryptoTable = () => {
 
 	return (
 		<div
-			className="w-11/12 text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-y-auto overflow-x-hidden"
+			className="2xl:w-11/12 w-full text-tracrypt-wt bg-tracrypt-dk rounded-tl-lg shadow-2xl shadow-black max-h-full overflow-y-auto overflow-x-hidden"
 			id="coinTable"
 		>
 			<div>
