@@ -9,13 +9,13 @@ const Filter = () => {
 				</div>
 			</div>
 
-			<FilterOption icon="fiat" name="Currencies" />
+			<FilterOption icon="fiat" name="Currency" />
 
 			<FilterOption icon="marketCap" name="Mkt Cap" />
 
 			<FilterOption icon="volumen" name="Volumen" />
 
-			<FilterOption icon="gainers" name="Gainers" />
+			<FilterOption icon="gainers" name="MVP" />
 
 			{/* Disclaimer */}
 			<div className="w-full z-0 shadow-lg shadow-black text-red-500 hover:cursor-default hover:bg-red-900 hover:text-tracrypt-wt transition-all">

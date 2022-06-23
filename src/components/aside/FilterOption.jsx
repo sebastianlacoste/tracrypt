@@ -1,7 +1,13 @@
+import { useState } from "react";
 import useFilterSelected from "../../hooks/useFilterSelected";
 
 const FilterOptions = ({ icon, name }) => {
-	const { setCurrencieChoose, setOrderChoose } = useFilterSelected();
+	const { currencieChoose, setCurrencieChoose, setOrderChoose } =
+		useFilterSelected();
+	const [orderTopLow, setOrderTopLow] = useState(false);
+	const [mvpTopLow1h, setMvpTopLow1h] = useState(false);
+	const [mvpTopLow24h, setMvpTopLow24h] = useState(false);
+	const [mvpTopLow7d, setMvpTopLow7d] = useState(false);
 
 	const icons = {
 		fiat: (
@@ -98,14 +104,19 @@ const FilterOptions = ({ icon, name }) => {
 	return (
 		<>
 			<div
-				className={`shadow-lg shadow-black bg-tracrypt-dk hover:bg-tracrypt-bl-dk transition-all ${
-					icon === "fiat" ? "cursor-default" : "hover:cursor-pointer"
+				className={`shadow-lg shadow-black bg-tracrypt-dk ${
+					icon === "fiat" || name === "MVP"
+						? "cursor-default"
+						: `hover:cursor-pointer ${
+								orderTopLow ? "hover:bg-green-600" : `hover:bg-red-600`
+						  }`
 				}`}
 				onClick={
-					icon === "fiat"
+					icon === "fiat" || name === "MVP"
 						? () => {}
 						: () => {
-								setOrderChoose(name);
+								setOrderChoose(`${orderTopLow ? name + "Top" : name + "Low"}`);
+								setOrderTopLow(!orderTopLow);
 						  }
 				}
 			>
@@ -122,7 +133,11 @@ const FilterOptions = ({ icon, name }) => {
 					<div className="w-full z-0">
 						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk">
 							<button
-								className="hover:bg-tracrypt-dk w-1/2 py-2"
+								className={`w-1/2 py-2 ${
+									currencieChoose === "usd"
+										? "bg-tracrypt-bl-dk"
+										: `bg-tracrypt-dk`
+								}`}
 								onClick={() => {
 									setCurrencieChoose("usd");
 								}}
@@ -130,12 +145,61 @@ const FilterOptions = ({ icon, name }) => {
 								USD
 							</button>
 							<button
-								className="hover:bg-tracrypt-dk w-1/2 py-2"
+								className={`w-1/2 py-2 ${
+									currencieChoose === "eur"
+										? "bg-tracrypt-bl-dk"
+										: `bg-tracrypt-dk`
+								}`}
 								onClick={() => {
 									setCurrencieChoose("eur");
 								}}
 							>
 								EUR
+							</button>
+						</div>
+					</div>
+				) : (
+					""
+				)}
+
+				{name === "MVP" ? (
+					<div className="w-full z-0">
+						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk">
+							<button
+								className={`w-1/2 py-2 ${
+									mvpTopLow1h ? "hover:bg-green-600" : `hover:bg-red-600`
+								}`}
+								onClick={() => {
+									setOrderChoose(`${mvpTopLow1h ? "1hTop" : "1hLow"}`);
+									setMvpTopLow1h(!mvpTopLow1h);
+									console.log("mvpTopLow1h: " + mvpTopLow1h);
+								}}
+							>
+								1h
+							</button>
+							<button
+								className={`w-1/2 py-2 ${
+									mvpTopLow24h ? "hover:bg-green-600" : `hover:bg-red-600`
+								}`}
+								onClick={() => {
+									setOrderChoose(`${mvpTopLow24h ? "24hTop" : "24hLow"}`);
+									setMvpTopLow24h(!mvpTopLow24h);
+									console.log("mvpTopLow24h: " + mvpTopLow24h);
+								}}
+							>
+								24h
+							</button>
+							<button
+								className={`w-1/2 py-2 ${
+									mvpTopLow7d ? "hover:bg-green-600" : `hover:bg-red-600`
+								}`}
+								onClick={() => {
+									setOrderChoose(`${mvpTopLow7d ? "7dTop" : "7dLow"}`);
+									setMvpTopLow7d(!mvpTopLow7d);
+									console.log("mvpTopLow7d: " + mvpTopLow7d);
+								}}
+							>
+								7d
 							</button>
 						</div>
 					</div>
