@@ -11,6 +11,7 @@ const CryptoTable = () => {
 		"24h Vol.",
 		"Mkt. Cap",
 	];
+
 	const thList = tableHeader.map((header) => (
 		<th className="w-full py-3 hover:bg-tracrypt-gr-dk transition-all font-extralight tracking-widest text-xl ">
 			{header}
@@ -26,8 +27,8 @@ const CryptoTable = () => {
 							{thList}
 						</tr>
 					</thead>
-					<tbody className="overflow-y-scroll">
-						<CoinData currencie="eur" />
+					<tbody className="overflow-x-hidden overflow-y-auto">
+						<CoinData currencie="usd" />
 					</tbody>
 				</table>
 			</div>

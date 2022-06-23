@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
 import clientAxios from "../../config/clientAxios";
+import { useState, useEffect } from "react";
+
 import { round, price } from "../../helpers/NumberFormat";
 
 const CoinData = ({ currencie }) => {
 	const [coinList, setCoinList] = useState([]);
-	const [actualCurrencie, setActualCurrencie] = useState();
 
 	let colorChange = false;
 
 	useEffect(() => {
 		const marketReq = async () => {
 			const { data } = await clientAxios(
-				`/coins/markets?vs_currency=${currencie}&per_page=10&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
+				`/coins/markets?vs_currency=${currencie}&per_page=20&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
 			);
 
 			const coinData = Object.values(data).map((coin) => {
@@ -26,17 +26,18 @@ const CoinData = ({ currencie }) => {
 					mktCap: price(coin.market_cap, currencie, true),
 				};
 			});
+
 			setCoinList(coinData);
 		};
 		marketReq();
+		setInterval(() => {
+			marketReq();
+		}, 300000); // Refresh cada 5min
 	}, []);
 
-	// Obtenemos el Objeto del Array
 	const trList = coinList.map((data) => {
-		// Obtenemos los valores del Objeto en un Array
 		const dataArray = Object.values(data);
 
-		// Recorremos los valores obtenidos para generar los <td>
 		let tdCounter = 0;
 
 		let tdListGen = dataArray.map((coinInfo) => {
