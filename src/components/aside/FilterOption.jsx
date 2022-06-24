@@ -1,13 +1,12 @@
 import { useState } from "react";
 import useFilterSelected from "../../hooks/useFilterSelected";
 
+import ButtonFiat from "./ButtonFiat";
+import ButtonMVP from "./ButtonMVP";
+
 const FilterOptions = ({ icon, name }) => {
-	const { currencieChoose, setCurrencieChoose, setOrderChoose } =
-		useFilterSelected();
+	const { setOrderChoose } = useFilterSelected();
 	const [orderTopLow, setOrderTopLow] = useState(false);
-	const [mvpTopLow1h, setMvpTopLow1h] = useState(false);
-	const [mvpTopLow24h, setMvpTopLow24h] = useState(false);
-	const [mvpTopLow7d, setMvpTopLow7d] = useState(false);
 
 	const icons = {
 		fiat: (
@@ -111,14 +110,14 @@ const FilterOptions = ({ icon, name }) => {
 								orderTopLow ? "hover:bg-green-700" : `hover:bg-red-700`
 						  }`
 				}`}
-				onClick={
-					icon === "fiat" || name === "MVP"
-						? () => {}
-						: () => {
-								setOrderChoose(`${orderTopLow ? name + "Top" : name + "Low"}`);
-								setOrderTopLow(!orderTopLow);
-						  }
-				}
+				onClick={() => {
+					if (icon !== "fiat" && name !== "MVP") {
+						setOrderChoose(
+							`${orderTopLow ? name.concat("Top") : name.concat("Low")}`
+						);
+						setOrderTopLow(!orderTopLow);
+					}
+				}}
 			>
 				<div className="w-full z-10">
 					<div className="flex justify-center items-center gap-5 py-3">
@@ -129,80 +128,28 @@ const FilterOptions = ({ icon, name }) => {
 					</div>
 				</div>
 
-				{icon === "fiat" ? (
-					<div className="w-full z-0">
-						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
-							<button
-								className={`w-1/2 py-2 bg-tracrypt-gr-dk ${
-									currencieChoose === "usd"
-										? "bg-tracrypt-bl-dk"
-										: `bg-tracrypt-dk`
-								}`}
-								onClick={() => {
-									setCurrencieChoose("usd");
-								}}
-							>
-								USD
-							</button>
-							<button
-								className={`w-1/2 py-2 bg-tracrypt-gr-dk ${
-									currencieChoose === "eur"
-										? "bg-tracrypt-bl-dk"
-										: `bg-tracrypt-dk`
-								}`}
-								onClick={() => {
-									setCurrencieChoose("eur");
-								}}
-							>
-								EUR
-							</button>
-						</div>
-					</div>
-				) : (
-					""
-				)}
-
-				{name === "MVP" ? (
-					<div className="w-full z-0">
-						<div className="flex justify-evenly items-center bg-tracrypt-gr-dk  mt-2 2xl:mt-0">
-							<button
-								className={`w-1/2 py-2 ${
-									mvpTopLow1h ? "hover:bg-green-700" : `hover:bg-red-700`
-								}`}
-								onClick={() => {
-									setOrderChoose(`${mvpTopLow1h ? "1hTop" : "1hLow"}`);
-									setMvpTopLow1h(!mvpTopLow1h);
-								}}
-							>
-								1h
-							</button>
-							<button
-								className={`w-1/2 py-2 ${
-									mvpTopLow24h ? "hover:bg-green-700" : `hover:bg-red-700`
-								}`}
-								onClick={() => {
-									setOrderChoose(`${mvpTopLow24h ? "24hTop" : "24hLow"}`);
-									setMvpTopLow24h(!mvpTopLow24h);
-								}}
-							>
-								24h
-							</button>
-							<button
-								className={`w-1/2 py-2 ${
-									mvpTopLow7d ? "hover:bg-green-700" : `hover:bg-red-700`
-								}`}
-								onClick={() => {
-									setOrderChoose(`${mvpTopLow7d ? "7dTop" : "7dLow"}`);
-									setMvpTopLow7d(!mvpTopLow7d);
-								}}
-							>
-								7d
-							</button>
-						</div>
-					</div>
-				) : (
-					""
-				)}
+				{(() => {
+					if (icon === "fiat") {
+						return (
+							<div className="w-full z-0">
+								<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
+									<ButtonFiat fiatCurrencie="usd" />
+									<ButtonFiat fiatCurrencie="eur" />
+								</div>
+							</div>
+						);
+					} else if (name === "MVP") {
+						return (
+							<div className="w-full z-0">
+								<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
+									<ButtonMVP name="1h" />
+									<ButtonMVP name="24h" />
+									<ButtonMVP name="7d" />
+								</div>
+							</div>
+						);
+					}
+				})()}
 			</div>
 		</>
 	);
