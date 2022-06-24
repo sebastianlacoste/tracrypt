@@ -1,33 +1,25 @@
-const priceFormat = (price, currencie) => {
-	return new Intl.NumberFormat(`${currencie === "usd" ? "en-US" : "de-DE"}`, {
+const priceFormat = (price, currency) => {
+	return new Intl.NumberFormat(`${currency === "usd" ? "en-US" : "de-DE"}`, {
 		style: "currency",
-		currency: `${currencie.toUpperCase()}`,
+		currency: `${currency.toUpperCase()}`,
 	}).format(price);
 };
 
-export const price = (price, currencie, cutDecimals) => {
-	if (currencie === "usd") {
-		if (price > 1) {
-			const usdCurrency = priceFormat(price, currencie);
+export const price = (price, currency, cutDecimals) => {
+	if (price > 1) {
+		const formattedPrice = priceFormat(price, currency);
 
-			if (cutDecimals) {
-				return usdCurrency.toString().split(".")[0];
-			}
-
-			return usdCurrency;
-		} else {
-			return "$" + price.toString();
+		if (cutDecimals && currency === "usd") {
+			return formattedPrice.toString().split(".")[0];
+		} else if (cutDecimals && currency === "eur") {
+			return formattedPrice.toString().split(",")[0].concat(" €");
 		}
-	} else if (currencie === "eur") {
-		if (price > 1) {
-			const eurCurrency = priceFormat(price, currencie);
 
-			if (cutDecimals) {
-				return eurCurrency.toString().split(",")[0].concat(" €");
-			}
-
-			return eurCurrency;
-		} else {
+		return formattedPrice;
+	} else {
+		if (currency === "usd") {
+			return "$" + price.toString();
+		} else if (currency === "eur") {
 			return price.toString().concat(" €");
 		}
 	}
