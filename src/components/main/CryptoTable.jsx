@@ -19,14 +19,14 @@ import {
 } from "../../helpers/OrderSort";
 
 const CryptoTable = () => {
-	const { currencieChoose, setCurrencieChoose, orderChoose, setOrderChoose } =
+	const { selectedCurrency, setSelectedCurrency, orderChoose, setOrderChoose } =
 		useFilterSelected();
 	const [coinRender, setCoinRender] = useState([]);
 
 	useEffect(() => {
 		const getApiData = async (currency) => {
-			if (currencieChoose === "") {
-				setCurrencieChoose("usd");
+			if (selectedCurrency === "") {
+				setSelectedCurrency("usd");
 			}
 
 			if (orderChoose === "") {
@@ -36,12 +36,12 @@ const CryptoTable = () => {
 			setCoinRender(await coinData(currency));
 		};
 
-		getApiData(currencieChoose);
+		getApiData(selectedCurrency);
 
 		setInterval(() => {
-			getApiData(currencieChoose);
+			getApiData(selectedCurrency);
 		}, 300000); // Auto-Refresh every 5mins
-	}, [currencieChoose, orderChoose]);
+	}, [selectedCurrency, orderChoose]);
 
 	const tableHeader = [
 		"#",

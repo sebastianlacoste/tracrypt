@@ -1,19 +1,19 @@
 import useFilterSelected from "../../hooks/useFilterSelected";
 
-const ButtonFiat = ({ fiatCurrencie }) => {
-	const { currencieChoose, setCurrencieChoose } = useFilterSelected();
+const ButtonFiat = ({ fiatCurrency }) => {
+	const { selectedCurrency, setSelectedCurrency } = useFilterSelected();
 	return (
 		<button
 			className={`w-1/2 py-2 bg-tracrypt-gr-dk ${
-				currencieChoose === fiatCurrencie.toLowerCase()
+				selectedCurrency === fiatCurrency.toLowerCase()
 					? "bg-tracrypt-bl-dk"
 					: `bg-tracrypt-dk`
 			}`}
 			onClick={() => {
-				setCurrencieChoose(fiatCurrencie.toLowerCase());
+				setSelectedCurrency(fiatCurrency.toLowerCase());
 			}}
 		>
-			{fiatCurrencie.toUpperCase()}
+			{fiatCurrency.toUpperCase()}
 		</button>
 	);
 };

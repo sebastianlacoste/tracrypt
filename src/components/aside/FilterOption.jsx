@@ -133,8 +133,8 @@ const FilterOptions = ({ icon, name }) => {
 						return (
 							<div className="w-full z-0">
 								<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
-									<ButtonFiat fiatCurrencie="usd" />
-									<ButtonFiat fiatCurrencie="eur" />
+									<ButtonFiat fiatCurrency="usd" />
+									<ButtonFiat fiatCurrency="eur" />
 								</div>
 							</div>
 						);

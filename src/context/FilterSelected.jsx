@@ -1,16 +1,16 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const FilterContext = createContext();
 
 export const FilterSelected = ({ children }) => {
-	const [currencieChoose, setCurrencieChoose] = useState("usd");
+	const [selectedCurrency, setSelectedCurrency] = useState("usd");
 	const [orderChoose, setOrderChoose] = useState("Mkt Cap");
 
 	return (
 		<FilterContext.Provider
 			value={{
-				currencieChoose,
-				setCurrencieChoose,
+				selectedCurrency,
+				setSelectedCurrency,
 				orderChoose,
 				setOrderChoose,
 			}}
