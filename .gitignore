@@ -24,6 +24,4 @@ dist-ssr
 *.sw?
 
 # Dev
-.env
-*.config.js
 package-lock.json
