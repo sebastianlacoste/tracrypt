@@ -1,19 +1,21 @@
 import FilterOption from "./FilterOption";
+
 import useMenuProvider from "../../hooks/useMenuProvider";
 
 const Filter = () => {
 	const { showMenu } = useMenuProvider();
 
 	return (
-		<div className={`2xl:w-2/12 text-tracrypt-wt font-extralight tracking-widest text-lg bg-tracrypt-dk rounded-tr-xl shadow-2xl shadow-black text-center flex flex-col justify-between min-h-full 2xl:overflow-x-hidden 2xl:relative 2xl:flex w-full ${showMenu ? "absolute" : "hidden"}`}>
+		<div className={`w-full xl:max-w-[250px] 2xl:max-w-[300px] min-h-full bg-tracrypt-dk shadow-2xl shadow-black text-tracrypt-wt text-sm 2xl:text-lg text-center font-extralight tracking-widest flex xl:flex flex-col justify-between xl:relative rounded-t-xl xl:overflow-x-hidden ${showMenu ? "absolute" : "hidden"}`}>
+
 			<div className="flex flex-col items-center gap-5">
 				<div className="w-full z-10">
-					<div className="bg-tracrypt-dk-f py-3 text-center border-b-2 border-b-tracrypt-bl shadow-lg shadow-black cursor-default hover:bg-tracrypt-gr-dk transition-all">
+					<div className="py-3 bg-tracrypt-dk-f hover:bg-tracrypt-gr-dk border-b-2 border-b-tracrypt-bl shadow-lg shadow-black text-center cursor-default transition-all">
 						<h1>Filters</h1>
 					</div>
 				</div>
 
-				<div className="w-full mx-auto flex flex-col 2xl:gap-5 2xl:mt-0 sm:mt-5 gap-8 2xl:px-0 max-w-2xl sm:max-w-lg"> 
+				<div className="w-full max-w-2xl sm:max-w-lg mx-auto sm:mt-5 2xl:mt-0 2xl:px-0 flex flex-col gap-8 2xl:gap-5"> 
 
 					<FilterOption icon="fiat" name="Currency" />
 
@@ -28,13 +30,13 @@ const Filter = () => {
 
 			<div>
 				{/* Coingecko Atribbute */}
-				<div className="w-full mx-auto z-0 hover:cursor-default 2xl:mb-4 mb-2 mt-10 sm:mt-0 max-w-2xl sm:max-w-lg">
+				<div className="w-full max-w-2xl sm:max-w-lg mx-auto mt-10 sm:mt-0 mb-2 2xl:mb-4 z-0 hover:cursor-default">
 					<div className="p-3 flex justify-center items-center">
 						<a
-							className="container py-2 rounded-lg shadow-md shadow-green-500 hover:shadow-lg hover:shadow-green-500 transition-all"
+							className="container py-2 shadow-md shadow-green-500 hover:shadow-lg hover:shadow-green-500 rounded-lg transition-all"
 							href="https://www.coingecko.com/en/api"
 							target="_blank"
-							rel="noopener nofollow"
+							rel="noopener noreferrer"
 						>
 							<h1 className="text-sm font-extralight">Powered by</h1>
 							<h1 className="text-xl text-green-500">Coingecko API</h1>
@@ -43,8 +45,8 @@ const Filter = () => {
 				</div>
 
 				{/* Disclaimer */}
-				<div className="w-full z-0 shadow-lg shadow-black bg-tracrypt-dk-f text-red-500 hover:cursor-default hover:bg-red-900 hover:text-tracrypt-wt transition-all">
-					<div className="flex justify-center py-3 text-center border-b-2 border-b-red-500 shadow-md shadow-black ">
+				<div className="w-full bg-tracrypt-dk-f hover:bg-red-900 shadow-lg shadow-black text-red-500 hover:text-tracrypt-wt z-0 transition-all hover:cursor-default">
+					<div className="py-3 border-b-2 border-b-red-500 shadow-md shadow-black text-center flex justify-center">
 						<div className="flex items-center gap-2">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +65,7 @@ const Filter = () => {
 					</div>
 					<div className="w-full">
 						<div className="py-2 bg-tracrypt-gr">
-							<p className="text-[12px] px-1 leading-normal overflow-hidden text-tracrypt-wt">
+							<p className="px-1 text-[12px] text-tracrypt-wt leading-normal overflow-hidden">
 								Any use or reliance on our content is solely at your own risk
 								and discretion.
 							</p>

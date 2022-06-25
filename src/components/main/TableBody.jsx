@@ -8,10 +8,10 @@ const TableBody = ({ coinsToShow }) => {
 		let tdValue = "";
 
 		if (color === "green") {
-			tdColor = "text-green-400";
+			tdColor = "max-w-[100px] text-green-400";
 			tdValue = "+" + coinValue + "%";
 		} else if (color === "red") {
-			tdColor = "text-red-400";
+			tdColor = "max-w-[100px] text-red-400";
 			tdValue = coinValue + "%";
 		} else {
 			tdValue = coinValue;
@@ -19,7 +19,7 @@ const TableBody = ({ coinsToShow }) => {
 
 		return (
 			<td
-				className={`lg:w-full md:w-36 w-32 p-3 ${tdColor}`}
+				className={`w-32 lg:w-36 xl:w-36 2xl:w-48 first:max-w-[50px] p-3 first:px-12 whitespace-nowrap ${tdColor}`}
 				key={keyGenerate()}
 			>
 				{tdValue}
@@ -65,7 +65,7 @@ const TableBody = ({ coinsToShow }) => {
 				className={`${
 					stripedEffect ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(stripedEffect =
-					!stripedEffect)} py-2 pr-8 flex justify-evenly items-center transition-all text-center hover:shadow-md hover:shadow-tracrypt-bl hover:scale-105 ease-out duration-300 cursor-default 2xl:text-sm text-xs`}
+					!stripedEffect)} py-2 hover:shadow-md hover:shadow-tracrypt-bl text-center 2xl:text-sm text-xs flex justify-evenly items-center hover:translate-x-1 hover:-translate-y-1 ease-out duration-300 transition-all cursor-default`}
 				key={keyGenerate()}
 			>
 				{tdCoinValues}

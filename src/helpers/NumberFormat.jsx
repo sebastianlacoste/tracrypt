@@ -1,25 +1,25 @@
-const priceFormat = (price, currency) => {
-	return new Intl.NumberFormat(`${currency === "usd" ? "en-US" : "de-DE"}`, {
+const priceFormat = (price, currencySelected) => {
+	return new Intl.NumberFormat(`${currencySelected === "usd" ? "en-US" : "de-DE"}`, {
 		style: "currency",
-		currency: `${currency.toUpperCase()}`,
+		currency: `${currencySelected.toUpperCase()}`,
 	}).format(price);
 };
 
-export const price = (price, currency, cutDecimals) => {
+export const price = (price, currencySelected, cutDecimals) => {
 	if (price > 1) {
-		const formattedPrice = priceFormat(price, currency);
+		const formattedPrice = priceFormat(price, currencySelected);
 
-		if (cutDecimals && currency === "usd") {
+		if (cutDecimals && currencySelected === "usd") {
 			return formattedPrice.toString().split(".")[0];
-		} else if (cutDecimals && currency === "eur") {
+		} else if (cutDecimals && currencySelected === "eur") {
 			return formattedPrice.toString().split(",")[0].concat(" €");
 		}
 
 		return formattedPrice;
 	} else {
-		if (currency === "usd") {
+		if (currencySelected === "usd") {
 			return "$" + price.toString();
-		} else if (currency === "eur") {
+		} else if (currencySelected === "eur") {
 			return price.toString().concat(" €");
 		}
 	}

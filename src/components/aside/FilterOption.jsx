@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import useFilterSelected from "../../hooks/useFilterSelected";
 
 import ButtonFiat from "./ButtonFiat";
@@ -103,7 +104,7 @@ const FilterOptions = ({ icon, name }) => {
 	return (
 		<>
 			<div
-				className={`shadow-lg shadow-black bg-tracrypt-dk ${
+				className={`bg-tracrypt-dk shadow-lg shadow-black ${
 					icon === "fiat" || name === "MVP"
 						? "cursor-default"
 						: `hover:cursor-pointer ${
@@ -120,7 +121,7 @@ const FilterOptions = ({ icon, name }) => {
 				}}
 			>
 				<div className="w-full z-10">
-					<div className="flex justify-center items-center gap-5 py-3">
+					<div className="py-3 flex justify-center items-center gap-5">
 						<div className="flex items-center gap-2">
 							{icons[icon]}
 							<h1>{name}</h1>
@@ -129,22 +130,22 @@ const FilterOptions = ({ icon, name }) => {
 				</div>
 
 				{(() => {
-					if (icon === "fiat") {
+					if (icon === "fiat" || name === "MVP") {
 						return (
 							<div className="w-full z-0">
-								<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
-									<ButtonFiat fiatCurrency="usd" />
-									<ButtonFiat fiatCurrency="eur" />
-								</div>
-							</div>
-						);
-					} else if (name === "MVP") {
-						return (
-							<div className="w-full z-0">
-								<div className="flex justify-evenly items-center bg-tracrypt-gr-dk mt-2 2xl:mt-0">
-									<ButtonMVP name="1h" />
-									<ButtonMVP name="24h" />
-									<ButtonMVP name="7d" />
+								<div className="mt-2 2xl:mt-0 bg-tracrypt-gr-dk flex justify-evenly items-center">
+									{icon === "fiat" ? (
+										<>
+											<ButtonFiat fiatCurrency="usd" />
+											<ButtonFiat fiatCurrency="eur" />
+										</>
+									) : (
+										<>
+											<ButtonMVP name="1h" />
+											<ButtonMVP name="24h" />
+											<ButtonMVP name="7d" />
+										</>
+									)}
 								</div>
 							</div>
 						);
