@@ -6,7 +6,7 @@ const Filter = () => {
 	const { showMenu } = useMenuProvider();
 
 	return (
-		<div className={`w-full xl:max-w-[250px] 2xl:max-w-[300px] min-h-full bg-tracrypt-dk shadow-2xl shadow-black text-tracrypt-wt text-sm 2xl:text-lg text-center font-extralight tracking-widest flex xl:flex flex-col justify-between xl:relative rounded-t-xl xl:overflow-x-hidden ${showMenu ? "absolute" : "hidden"}`}>
+		<div className={`w-full xl:max-w-[250px] 2xl:max-w-[300px] min-h-full bg-tracrypt-dk shadow-2xl shadow-black text-tracrypt-wt text-sm 2xl:text-lg text-center font-extralight tracking-widest flex xl:flex flex-col justify-between xl:relative z-20 rounded-t-xl xl:overflow-x-hidden ${showMenu ? "absolute" : "hidden"}`}>
 
 			<div className="flex flex-col items-center gap-5">
 				<div className="w-full z-10">

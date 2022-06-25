@@ -37,11 +37,11 @@ const CryptoTable = () => {
 
 	return (
 		<div
-			className="w-full px-2 overflow-x-visible overflow-y-auto "
+			className="w-full lg:px-2 overflow-x-visible overflow-y-auto "
 			id="coinTable"
 		>
 			<table className="w-full max-h-full text-tracrypt-wt">
-				<thead>
+				<thead className="sticky top-0 z-10">
 					<tr className="bg-tracrypt-dk-f border-b-2 border-b-tracrypt-bl text-center flex justify-evenly items-center cursor-default">
 						<TableHead />
 					</tr>
