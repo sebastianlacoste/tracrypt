@@ -10,7 +10,9 @@ const coinData = async (currency) => {
 	const coinData = Object.values(data).map((coin) => {
 		return {
 			rank: coin.market_cap_rank,
-			name: `${coin.name} (${coin.symbol.toUpperCase()})`,
+			name:
+				coin.image.split("?")[0] +
+				` ${coin.name} (${coin.symbol.toUpperCase()})`,
 			price: `${price(coin.current_price, currency, false)}`,
 			change1h: round(coin.price_change_percentage_1h_in_currency),
 			change24h: round(coin.price_change_percentage_24h_in_currency),

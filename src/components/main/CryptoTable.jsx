@@ -9,6 +9,15 @@ import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 
 const CryptoTable = () => {
+	// Synchronize <th> header and <td> body styles
+	const syncStyles = {
+		coin: "min-w-[190px] xl:min-w-[210px] 2xl:min-w-[260px] text-left",
+		price: "max-w-[200px] pr-4 text-right",
+		changes: "max-w-[90px] pr-6 xl:pr-4 text-right",
+		volumeMktCap: "max-w-[160px] pl-0 pr-8 text-right",
+		thTdStyle:
+			"w-32 lg:w-36 xl:w-36 2xl:w-48 first:max-w-[50px] p-3 first:px-8 whitespace-nowrap",
+	};
 	const { selectedCurrency, setSelectedCurrency, orderChoose, setOrderChoose } =
 		useFilterSelected();
 	const [coinsData, setCoinsData] = useState([]);
@@ -37,17 +46,15 @@ const CryptoTable = () => {
 
 	return (
 		<div
-			className="w-full lg:px-2 overflow-x-visible overflow-y-auto "
+			className="w-full lg:px-2 overflow-x-visible overflow-y-auto min-w-[200px]"
 			id="coinTable"
 		>
 			<table className="w-full max-h-full text-tracrypt-wt">
 				<thead className="sticky top-0 z-10">
-					<tr className="bg-tracrypt-dk-f border-b-2 border-b-tracrypt-bl text-center flex justify-evenly items-center cursor-default">
-						<TableHead />
-					</tr>
+					<TableHead syncStyles={syncStyles} />
 				</thead>
 				<tbody>
-					<TableBody coinsToShow={coinsData} />
+					<TableBody syncStyles={syncStyles} coinsToShow={coinsData} />
 				</tbody>
 			</table>
 		</div>

@@ -6,11 +6,11 @@ const Filter = () => {
 	const { showMenu } = useMenuProvider();
 
 	return (
-		<div className={`w-full xl:max-w-[250px] 2xl:max-w-[300px] min-h-full bg-tracrypt-dk shadow-2xl shadow-black text-tracrypt-wt text-sm 2xl:text-lg text-center font-extralight tracking-widest flex xl:flex flex-col justify-between xl:relative z-20 rounded-t-xl xl:overflow-x-hidden ${showMenu ? "absolute" : "hidden"}`}>
+		<div className={`w-full xl:max-w-[250px] 2xl:max-w-[300px] min-h-full bg-tracrypt-dk shadow-xl hover:shadow-2xl shadow-black hover:shadow-black text-tracrypt-wt text-sm 2xl:text-lg text-center font-extralight tracking-widest flex xl:flex flex-col justify-between xl:relative z-20 rounded-t-xl xl:overflow-x-hidden transition-all ${showMenu ? "absolute" : "hidden"}`}>
 
 			<div className="flex flex-col items-center gap-5">
 				<div className="w-full z-10">
-					<div className="py-3 bg-tracrypt-dk-f hover:bg-tracrypt-gr-dk border-b-2 border-b-tracrypt-bl shadow-lg shadow-black text-center cursor-default transition-all">
+					<div className="py-3 bg-tracrypt-dk-f border-b-2 border-b-tracrypt-bl shadow-lg shadow-black text-center cursor-default transition-all">
 						<h1>Filters</h1>
 					</div>
 				</div>
