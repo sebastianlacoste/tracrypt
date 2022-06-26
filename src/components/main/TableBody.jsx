@@ -1,5 +1,7 @@
 import keyGenerate from "../../helpers/KeyGenerate";
 
+import { decimal } from "../../helpers/NumberFormat";
+
 const TableBody = ({ coinsToShow, syncStyles }) => {
 	let stripedEffect = false;
 
@@ -10,11 +12,19 @@ const TableBody = ({ coinsToShow, syncStyles }) => {
 		if (color === "green") {
 			// change1h - change24h - change7d
 			tdClass = syncStyles.changes.concat(" text-green-400");
-			tdValue = "+" + coinValue + "%";
+			if (!decimal(coinValue)) {
+				tdValue = "+" + coinValue + ".00" + "%";
+			} else {
+				tdValue = "+" + coinValue + "%";
+			}
 		} else if (color === "red") {
 			// change1h - change24h - change7d
 			tdClass = syncStyles.changes.concat(" text-red-400");
-			tdValue = coinValue + "%";
+			if (!decimal(coinValue)) {
+				tdValue = coinValue + ".00" + "%";
+			} else {
+				tdValue = coinValue + "%";
+			}
 		} else if (name) {
 			// image/name
 			tdClass = syncStyles.coin;
