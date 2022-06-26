@@ -3,23 +3,26 @@ import keyGenerate from "../../helpers/KeyGenerate";
 const TableBody = ({ coinsToShow }) => {
 	let stripedEffect = false;
 
-	const tdGenerator = (color, coinValue) => {
-		let tdColor = "";
+	const tdGenerator = (coinValue, color = "", name = false) => {
+		let tdClass = "";
 		let tdValue = "";
 
 		if (color === "green") {
-			tdColor = "max-w-[100px] text-green-400";
+			tdClass = "max-w-[100px] text-green-400";
 			tdValue = "+" + coinValue + "%";
 		} else if (color === "red") {
-			tdColor = "max-w-[100px] text-red-400";
+			tdClass = "max-w-[100px] text-red-400";
 			tdValue = coinValue + "%";
+		} else if (name) {
+			tdClass = "text-left";
+			tdValue = coinValue;
 		} else {
 			tdValue = coinValue;
 		}
 
 		return (
 			<td
-				className={`w-32 lg:w-36 xl:w-36 2xl:w-48 first:max-w-[50px] p-3 first:px-12 whitespace-nowrap ${tdColor}`}
+				className={`w-32 lg:w-36 xl:w-36 2xl:w-48 first:max-w-[50px] p-3 first:px-12 whitespace-nowrap ${tdClass}`}
 				key={keyGenerate()}
 			>
 				{tdValue}
@@ -46,17 +49,20 @@ const TableBody = ({ coinsToShow }) => {
 						7 | white | $2,313,413,164 | mktCap	
 			*/
 
-			if (positionCounter > 2 && positionCounter < 6) {
+			if (positionCounter === 1) {
+				positionCounter++;
+				return tdGenerator(coinValue, "", true);
+			} else if (positionCounter > 2 && positionCounter < 6) {
 				if (coinValue > 0) {
 					positionCounter++;
-					return tdGenerator("green", coinValue);
+					return tdGenerator(coinValue, "green");
 				} else {
 					positionCounter++;
-					return tdGenerator("red", coinValue);
+					return tdGenerator(coinValue, "red");
 				}
 			} else {
 				positionCounter++;
-				return tdGenerator("", coinValue);
+				return tdGenerator(coinValue);
 			}
 		});
 
