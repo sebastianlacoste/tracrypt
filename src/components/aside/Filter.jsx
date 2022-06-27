@@ -39,7 +39,7 @@ const Filter = () => {
 							rel="noopener noreferrer"
 						>
 							<h1 className="text-sm font-extralight">Powered by</h1>
-							<h1 className="text-xl text-green-500">Coingecko API</h1>
+							<h1 className="text-xl text-green-500">CoinGecko API</h1>
 						</a>
 					</div>
 				</div>
