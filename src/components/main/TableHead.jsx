@@ -13,7 +13,7 @@ const TableHead = ({ syncStyles }) => {
 	];
 	const thGenerator = (header, thClass = "") => (
 		<th
-			className={`2xl:text-lg font-extralight tracking-widest ${syncStyles.thTdStyle} ${thClass}`}
+			className={`font-extralight tracking-widest 2xl:text-lg ${syncStyles.thTdStyle} ${thClass}`}
 			key={keyGenerate()}
 		>
 			{header}
@@ -35,7 +35,7 @@ const TableHead = ({ syncStyles }) => {
 	});
 
 	return (
-		<tr className="bg-tracrypt-dk-f border-b-2 border-b-tracrypt-bl flex justify-evenly items-center cursor-default">
+		<tr className="flex cursor-default items-center justify-evenly border-b-2 border-b-tracrypt-bl bg-tracrypt-dk-f">
 			{thValues}
 		</tr>
 	);

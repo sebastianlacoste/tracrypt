@@ -120,8 +120,8 @@ const FilterOptions = ({ icon, name }) => {
 					}
 				}}
 			>
-				<div className="w-full z-10">
-					<div className="py-3 flex justify-center items-center gap-5">
+				<div className="z-10 w-full">
+					<div className="flex items-center justify-center gap-5 py-3">
 						<div className="flex items-center gap-2">
 							{icons[icon]}
 							<h1>{name}</h1>
@@ -132,8 +132,8 @@ const FilterOptions = ({ icon, name }) => {
 				{(() => {
 					if (icon === "fiat" || name === "MVP") {
 						return (
-							<div className="w-full z-0">
-								<div className="mt-2 2xl:mt-0 bg-tracrypt-gr-dk flex justify-evenly items-center">
+							<div className="z-0 w-full">
+								<div className="mt-2 flex items-center justify-evenly bg-tracrypt-gr-dk 2xl:mt-0">
 									{icon === "fiat" ? (
 										<>
 											<ButtonFiat fiatCurrency="usd" />

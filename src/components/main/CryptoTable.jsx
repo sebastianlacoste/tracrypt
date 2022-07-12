@@ -46,10 +46,10 @@ const CryptoTable = () => {
 
 	return (
 		<div
-			className="w-full lg:px-2 overflow-x-visible overflow-y-auto min-w-[200px]"
+			className="w-full min-w-[200px] overflow-y-auto overflow-x-visible lg:px-2"
 			id="coinTable"
 		>
-			<table className="w-full max-h-full text-tracrypt-wt">
+			<table className="max-h-full w-full text-tracrypt-wt">
 				<thead className="sticky top-0 z-10">
 					<TableHead syncStyles={syncStyles} />
 				</thead>

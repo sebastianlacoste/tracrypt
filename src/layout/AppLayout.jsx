@@ -12,7 +12,7 @@ const AppLayout = () => {
 
 	return (
 		<>
-			<div className="min-w-full max-w-fill min-h-full max-h-full bg-tracrypt-dk flex flex-col justify-between xl:gap-8">
+			<div className="max-w-fill flex max-h-full min-h-full min-w-full flex-col justify-between bg-tracrypt-dk xl:gap-8">
 				<Header />
 				<Outlet />
 			</div>

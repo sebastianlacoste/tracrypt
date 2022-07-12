@@ -6,17 +6,19 @@ const Filter = () => {
 	const { showMenu } = useMenuProvider();
 
 	return (
-		<div className={`w-full xl:max-w-[250px] 2xl:max-w-[300px] min-h-full bg-tracrypt-dk shadow-xl hover:shadow-2xl shadow-black hover:shadow-black text-tracrypt-wt text-sm 2xl:text-lg text-center font-extralight tracking-widest flex xl:flex flex-col justify-between xl:relative z-20 rounded-t-xl xl:overflow-x-hidden transition-all ${showMenu ? "absolute" : "hidden"}`}>
-
+		<div
+			className={`z-20 flex min-h-full w-full flex-col justify-between rounded-t-xl bg-tracrypt-dk text-center text-sm font-extralight tracking-widest text-tracrypt-wt shadow-xl shadow-black transition-all hover:shadow-2xl hover:shadow-black xl:relative xl:flex xl:max-w-[250px] xl:overflow-x-hidden 2xl:max-w-[300px] 2xl:text-lg ${
+				showMenu ? "absolute" : "hidden"
+			}`}
+		>
 			<div className="flex flex-col items-center gap-5">
-				<div className="w-full z-10">
-					<div className="py-3 bg-tracrypt-dk-f border-b-2 border-b-tracrypt-bl shadow-lg shadow-black text-center cursor-default transition-all">
+				<div className="z-10 w-full">
+					<div className="cursor-default border-b-2 border-b-tracrypt-bl bg-tracrypt-dk-f py-3 text-center shadow-lg shadow-black transition-all">
 						<h1>Filters</h1>
 					</div>
 				</div>
 
-				<div className="w-full max-w-2xl sm:max-w-lg mx-auto sm:mt-5 2xl:mt-0 2xl:px-0 flex flex-col gap-8 2xl:gap-5"> 
-
+				<div className="mx-auto flex w-full max-w-2xl flex-col gap-8 sm:mt-5 sm:max-w-lg 2xl:mt-0 2xl:gap-5 2xl:px-0">
 					<FilterOption icon="fiat" name="Currency" />
 
 					<FilterOption icon="gainers" name="MVP" />
@@ -24,16 +26,15 @@ const Filter = () => {
 					<FilterOption icon="marketCap" name="Mkt Cap" />
 
 					<FilterOption icon="volumen" name="Volumen" />
-		
 				</div>
 			</div>
 
 			<div>
 				{/* Coingecko Atribbute */}
-				<div className="w-full max-w-2xl sm:max-w-lg mx-auto mt-10 sm:mt-0 mb-2 2xl:mb-4 z-0 hover:cursor-default">
-					<div className="p-3 flex justify-center items-center">
+				<div className="z-0 mx-auto mt-10 mb-2 w-full max-w-2xl hover:cursor-default sm:mt-0 sm:max-w-lg 2xl:mb-4">
+					<div className="flex items-center justify-center p-3">
 						<a
-							className="container py-2 shadow-md shadow-green-500 hover:shadow-lg hover:shadow-green-500 rounded-lg transition-all"
+							className="container rounded-lg py-2 shadow-md shadow-green-500 transition-all hover:shadow-lg hover:shadow-green-500"
 							href="https://www.coingecko.com/en/api"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -45,8 +46,8 @@ const Filter = () => {
 				</div>
 
 				{/* Disclaimer */}
-				<div className="w-full bg-tracrypt-dk-f hover:bg-red-900 shadow-lg shadow-black text-red-500 hover:text-tracrypt-wt z-0 transition-all hover:cursor-default">
-					<div className="py-3 border-b-2 border-b-red-500 shadow-md shadow-black text-center flex justify-center">
+				<div className="z-0 w-full bg-tracrypt-dk-f text-red-500 shadow-lg shadow-black transition-all hover:cursor-default hover:bg-red-900 hover:text-tracrypt-wt">
+					<div className="flex justify-center border-b-2 border-b-red-500 py-3 text-center shadow-md shadow-black">
 						<div className="flex items-center gap-2">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -64,8 +65,8 @@ const Filter = () => {
 						</div>
 					</div>
 					<div className="w-full">
-						<div className="py-2 bg-tracrypt-gr">
-							<p className="px-1 text-[12px] text-tracrypt-wt leading-normal overflow-hidden">
+						<div className="bg-tracrypt-gr py-2">
+							<p className="overflow-hidden px-1 text-[12px] leading-normal text-tracrypt-wt">
 								Any use or reliance on our content is solely at your own risk
 								and discretion.
 							</p>

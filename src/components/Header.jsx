@@ -6,10 +6,10 @@ const Header = () => {
 	return (
 		<>
 			<header className="shadow-2xl">
-				<div className="py-2 shadow-xl flex justify-center items-center">
+				<div className="flex items-center justify-center py-2 shadow-xl">
 					{" "}
 					<a
-						className="rounded-full hover:shadow-lg hover:shadow-tracrypt-wt hover:scale-105 transition-all hover:cursor-pointer"
+						className="rounded-full transition-all hover:scale-105 hover:cursor-pointer hover:shadow-lg hover:shadow-tracrypt-wt"
 						href="https://github.com/sebastianlacoste/tracrypt"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -30,9 +30,13 @@ const Header = () => {
 						</svg>
 					</a>
 				</div>
-				<div className="py-5 2xl:px-10 px-4 shadow-2xl flex xl:justify-center justify-between items-center">
+				<div className="flex items-center justify-between py-5 px-4 shadow-2xl xl:justify-center 2xl:px-10">
 					{" "}
-					<a className="hover:cursor-pointer" href="/" rel="noopener noreferrer">
+					<a
+						className="hover:cursor-pointer"
+						href="/"
+						rel="noopener noreferrer"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -74,7 +78,7 @@ const Header = () => {
 							height="24"
 							fill="none"
 							viewBox="0 0 24 24"
-							className="mt-2 xl:hidden ease-in transition-all hover:cursor-pointer"
+							className="mt-2 transition-all ease-in hover:cursor-pointer xl:hidden"
 							onClick={() => {
 								setShowMenu(!showMenu);
 							}}
@@ -91,7 +95,7 @@ const Header = () => {
 							height="32"
 							fill="none"
 							viewBox="0 0 24 24"
-							className="xl:hidden ease-in transition-all hover:cursor-pointer"
+							className="transition-all ease-in hover:cursor-pointer xl:hidden"
 							onClick={() => {
 								setShowMenu(!showMenu);
 							}}

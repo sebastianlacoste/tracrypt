@@ -31,7 +31,7 @@ const TableBody = ({ coinsToShow, syncStyles }) => {
 			tdValue = (
 				<div className="flex items-center gap-2">
 					<img
-						className="w-4 h-4 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6"
+						className="h-4 w-4 xl:h-5 xl:w-5 2xl:h-6 2xl:w-6"
 						src={coinValue.split(" ")[0]}
 					/>{" "}
 					{`${coinValue.split(" ").slice(1).join(" ")}`}
@@ -99,7 +99,7 @@ const TableBody = ({ coinsToShow, syncStyles }) => {
 				className={`${
 					stripedEffect ? "bg-tracrypt-gr-dk" : "bg-tracrypt-dk"
 				} ${(stripedEffect =
-					!stripedEffect)} py-2 hover:shadow-md hover:shadow-tracrypt-bl text-xs 2xl:text-sm flex justify-evenly items-center hover:translate-x-1 hover:-translate-y-1 ease-out duration-300 transition-all cursor-default`}
+					!stripedEffect)} flex cursor-default items-center justify-evenly py-2 text-xs transition-all duration-300 ease-out hover:translate-x-1 hover:-translate-y-1 hover:shadow-md hover:shadow-tracrypt-bl 2xl:text-sm`}
 				key={keyGenerate()}
 			>
 				{tdCoinValues}
