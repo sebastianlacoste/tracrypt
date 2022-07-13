@@ -1,9 +1,10 @@
-<p align="center">
+<div align="center">
   <a href="https://tracrypt.sebastianlacoste.com" target="_blank" rel="noopener noreferrer">
     <img width="" src="./doc/Readme/Logo.png" alt="Tracrypt Logo">
   </a>
-</p>
-<hr/>
+</div>
+
+---
 
 > [Tracrypt](https://tracrypt.sebastianlacoste.com) is a web-based tool where you can track and filter market data from the top 250 cryptocurrencies, all data is obtained via the CoinGecko API.
 
@@ -53,9 +54,11 @@
 
   - **CSS**
 
-    - [Tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+    - [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 
-    - [Postcss](https://github.com/postcss/postcss)
+    - [Prettier plugin for Tailwind CSS](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+
+    - [PostCSS](https://github.com/postcss/postcss)
 
     - [Autoprefixer](https://github.com/postcss/autoprefixer)
 
@@ -70,6 +73,10 @@
     - [CoinGecko API](https://www.coingecko.com/en/api)
 
 ## Run Locally
+
+Install required
+
+- [Node.js/npm](https://nodejs.org/en/download)
 
 Clone the repository
 
@@ -127,19 +134,19 @@ In the browser, go to
 
 - **Desktop**
 
-  ![Desktop](./doc/Readme/Desktop.png) 
+  ![Desktop](./doc/Readme/Desktop.png)
 
 - **Tablet**
 
-  ![Tablet](./doc/Readme/Tablet.png) 
+  ![Tablet](./doc/Readme/Tablet.png)
 
-  ![Tablet-Menu](./doc/Readme/Tablet-Menu.png) 
+  ![Tablet-Menu](./doc/Readme/Tablet-Menu.png)
 
 - **Mobile**
 
   ![Mobile](./doc/Readme/Mobile.png)
 
-  ![Mobile-Menu](./doc/Readme/Mobile-Menu.png) 
+  ![Mobile-Menu](./doc/Readme/Mobile-Menu.png)
 
 ## License
 
